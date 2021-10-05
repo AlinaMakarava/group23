@@ -1,4 +1,4 @@
-makarava alina alegauna
-37 years old
-2 pets
-100
+name: Makarava Alina Alegauna
+age: 37 years old
+pets number: 2 pets
+salary: 200
