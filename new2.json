@@ -1,5 +1,6 @@
 {
-	name: "Alina Alegauna Makarava",
-	age: 37,
-	number of home pets: 2,
-	salary: 100"}
+	"name":"Alina Makarava Alegauna" ,
+	"age":26 ,
+	"pets":2 ,
+	"salary":200
+ }
