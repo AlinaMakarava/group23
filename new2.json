@@ -1,6 +1,11 @@
 {
-	"name":"Alina Makarava Alegauna" ,
-	"age":26 ,
-	"pets":2 ,
-	"salary":200
+	"name": "Alina Makarava Alegauna" ,
+	"age": 37 ,
+	"pets": 2 ,
+	"salary": 200,
+	"film": "pretty women",
+	"TV series": "Sherlock Holms",
+	"food": "lasagna",
+	"season": "summer",
+	"country": "Africa"
  }
