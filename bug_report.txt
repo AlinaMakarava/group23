@@ -1,0 +1,14 @@
+Summary
+Project
+Component
+Version
+Severity
+Priority
+Status
+Author
+Assigner to
+Environment
+Steps to Reproduce
+Actual result
+Expected result
+Attachment
