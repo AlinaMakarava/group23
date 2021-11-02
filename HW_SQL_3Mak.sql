@@ -26,13 +26,20 @@ on employees.id = em.employee_id
 where em.employee_id not in (select employees.id from employees)
 
 --4. Вывести все зарплатные позиции  меньше 2000 но работник по ним не назначен. (ЗП есть, но не понятно кто её получает.)
-select employees.employee_name, salary.monthly_salary 
+select employee_salary.employee_id 
+from employee_salary 
+join salary 
+on salary.id = employee_salary.salary_id
+where employee_salary.employee_id not in (select employee_salary.employee_id from employee_salary
+join employees on employee_salary.employee_id = employees.id) and salary.monthly_salary <2000
+
+select salary.monthly_salary, employees.employee_name 
 from salary 
 left join employee_salary 
-on salary_id = employee_salary.salary_id
-left outer join employees  
-on employees.id = employee_salary.employee_id
-where employees.employee_name is null and salary.monthly_salary <2000
+on salary.id = employee_salary.salary_id 
+left outer join employees 
+on employees.id = employee_salary.employee_id 
+where employees.employee_name is null and salary.monthly_salary <2000 
 
 --5. Найти всех работников кому не начислена ЗП.
 select employees.employee_name, salary.monthly_salary 
@@ -298,40 +305,28 @@ where roles.role_name like '%QA engineer'
 
 --25. Вывести количество QA инженеров
 select count(employees.employee_name)
-from roles_employee 
-join employee_salary 
-on roles_employee.employee_id =employee_salary.employee_id
-join salary 
-on employee_salary.salary_id = salary.id
-join employees 
-on employee_salary.employee_id = employees.id
-join roles 
+from employees 
+join roles_employee 
+on employees.id = roles_employee.employee_id 
+join roles
 on roles_employee.role_id = roles.id
 where roles.role_name like '%QA engineer'
 
 --26. Вывести количество Middle специалистов.
 select count(employees.employee_name)
-from roles_employee 
-join employee_salary 
-on roles_employee.employee_id =employee_salary.employee_id
-join salary 
-on employee_salary.salary_id = salary.id
-join employees 
-on employee_salary.employee_id = employees.id
-join roles 
+from employees 
+join roles_employee 
+on employees.id = roles_employee.employee_id 
+join roles
 on roles_employee.role_id = roles.id
 where roles.role_name like 'Middle%'
 
 --27. Вывести количество разработчиков
 select count(employees.employee_name)
-from roles_employee 
-join employee_salary 
-on roles_employee.employee_id =employee_salary.employee_id
-join salary 
-on employee_salary.salary_id = salary.id
-join employees 
-on employee_salary.employee_id = employees.id
-join roles 
+from employees 
+join roles_employee 
+on employees.id = roles_employee.employee_id 
+join roles
 on roles_employee.role_id = roles.id
 where roles.role_name like '%developer'
 
